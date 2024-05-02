@@ -1,0 +1,5 @@
+source tflite1-env/bin/activate
+
+bash get_pi_requirements.sh
+
+python3 TFLite_detection_webcam.py --modeldir=Object_Detection_TFLite_model
