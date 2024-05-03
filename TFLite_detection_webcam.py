@@ -98,10 +98,6 @@ PATH_TO_LABELS = os.path.join(CWD_PATH,MODEL_NAME,LABELMAP_NAME)
 with open(PATH_TO_LABELS, 'r') as f:
     labels = [line.strip() for line in f.readlines()]
 
-# Have to do a weird fix for label map if using the COCO "starter model" from
-# https://www.tensorflow.org/lite/models/object_detection/overview
-# First label is '???', which has to be removed.
-
 # Load the Tensorflow Lite model.
 interpreter = Interpreter(model_path=PATH_TO_CKPT)
 interpreter.allocate_tensors()
