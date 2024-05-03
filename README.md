@@ -6,18 +6,31 @@ TensorFlow Lite is set up on the Raspberry Pi and is used to run object detectio
 
 Hardware used:
 - Raspberry Pi 4 (Raspian Buster OS)
-- Web camera
+- Web camera (USB) or picamera
 - Display and micro HDMI cable
-- Keyboard and Mouse
+- Keyboard and Mouse (Optional)
 
-The detection will provide the name of detected object along with the accuracy in percentage.
+The detection will provide in form of video stream providing name of detected object along with the probability in percentage. 
 
 ## How to run
-- Setup Ras
+- Setup Raspberry-Pi 4 
 - Connect dispay and peripherals
 - Open the terminal
-- Go into th directory (assuming you have already downloaded the project)
-- Run the script file : _bash get_pi_requirements.sh_
-- Setup python virtual environment : _python3 venv object_detection_
-- Activate virtual environment : _source object_detection/bin/activate_
-- Run the python file using this command : __
+- Go into the directory (assuming you have already downloaded the project from github)
+- Run the script file :
+  ```bash
+  get_pi_requirements.sh
+  ```
+- Setup python virtual environment :
+  ```bash
+  python3 venv object_detection
+  ```
+- Activate virtual environment :
+  ```bash
+  source object_detection/bin/activate
+  ```
+- Run the python file using this command :
+  ```bash
+  python3 TFLite_detection_webcam.py --modeldir=Object_Detection_TFLite_model
+  ```
+  
