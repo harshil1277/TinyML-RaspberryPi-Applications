@@ -19,7 +19,7 @@ The detection will provide in form of video stream providing name of detected ob
 - Go into the directory (assuming you have already downloaded the project from github)
 - Run the script file :
   ```bash
-  get_pi_requirements.sh
+  bash get_pi_requirements.sh
   ```
 - Setup python virtual environment :
   ```bash
