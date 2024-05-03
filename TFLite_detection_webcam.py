@@ -101,18 +101,9 @@ with open(PATH_TO_LABELS, 'r') as f:
 # Have to do a weird fix for label map if using the COCO "starter model" from
 # https://www.tensorflow.org/lite/models/object_detection/overview
 # First label is '???', which has to be removed.
-if labels[0] == '???':
-    del(labels[0])
 
 # Load the Tensorflow Lite model.
-# If using Edge TPU, use special load_delegate argument
-if use_TPU:
-    interpreter = Interpreter(model_path=PATH_TO_CKPT,
-                              experimental_delegates=[load_delegate('libedgetpu.so.1.0')])
-    print(PATH_TO_CKPT)
-else:
-    interpreter = Interpreter(model_path=PATH_TO_CKPT)
-
+interpreter = Interpreter(model_path=PATH_TO_CKPT)
 interpreter.allocate_tensors()
 
 # Get model details
