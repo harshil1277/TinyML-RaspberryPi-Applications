@@ -1,17 +1,4 @@
 ######## Webcam Object Detection Using Tensorflow-trained Classifier #########
-#
-# Author: Evan Juras
-# Date: 10/27/19
-# Description: 
-# This program uses a TensorFlow Lite model to perform object detection on a live webcam
-# feed. It draws boxes and scores around the objects of interest in each frame from the
-# webcam. To improve FPS, the webcam object runs in a separate thread from the main program.
-# This script will work with either a Picamera or regular USB webcam.
-#
-# This code is based off the TensorFlow Lite image classification example at:
-# https://github.com/tensorflow/tensorflow/blob/master/tensorflow/lite/examples/python/label_image.py
-#
-# I added my own method of drawing boxes and labels using OpenCV.
 
 # Import packages
 import os
@@ -92,22 +79,11 @@ use_TPU = args.edgetpu
 
 # Import TensorFlow libraries
 # If tflite_runtime is installed, import interpreter from tflite_runtime, else import from regular tensorflow
-# If using Coral Edge TPU, import the load_delegate library
 pkg = importlib.util.find_spec('tflite_runtime')
 if pkg:
     from tflite_runtime.interpreter import Interpreter
-    if use_TPU:
-        from tflite_runtime.interpreter import load_delegate
 else:
     from tensorflow.lite.python.interpreter import Interpreter
-    if use_TPU:
-        from tensorflow.lite.python.interpreter import load_delegate
-
-# If using Edge TPU, assign filename for Edge TPU model
-if use_TPU:
-    # If user has specified the name of the .tflite file, use that name, otherwise use default 'edgetpu.tflite'
-    if (GRAPH_NAME == 'detect.tflite'):
-        GRAPH_NAME = 'edgetpu.tflite'       
 
 # Get path to current working directory
 CWD_PATH = os.getcwd()
