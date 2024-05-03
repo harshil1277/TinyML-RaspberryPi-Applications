@@ -10,27 +10,26 @@ Hardware used:
 - Display and micro HDMI cable
 - Keyboard and Mouse (Optional)
 
-The detection will provide in form of video stream providing name of detected object along with the probability in percentage. 
+The detection will be in form of video stream providing name of detected object along with the probability in percentage. 
 
 ## How to run
-- Setup Raspberry-Pi 4 
-- Connect dispay and peripherals
+- Setup Raspberry-Pi (Connect dispay and peripherals)
 - Open the terminal
 - Go into the directory (assuming you have already downloaded the project from github)
 - Run the script file :
-  ```bash
+  ```terminal
   bash get_pi_requirements.sh
   ```
 - Setup python virtual environment :
-  ```bash
+  ```terminal
   python3 venv object_detection
   ```
 - Activate virtual environment :
-  ```bash
+  ```terminal
   source object_detection/bin/activate
   ```
 - Run the python file using this command :
-  ```bash
+  ```terminal
   python3 TFLite_detection_webcam.py --modeldir=Object_Detection_TFLite_model
   ```
   
